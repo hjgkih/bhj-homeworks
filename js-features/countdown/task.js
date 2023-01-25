@@ -6,33 +6,22 @@ const timerValueMinuteStart = (Number(timerValueMinute.textContent));
 const timerValueSecondStart = (Number(timerValueSecond.textContent));
 
 setInterval(() => {
-    if (timerValueHour.textContent == 0 && timerValueMinute.textContent == 0 && timerValueSecond.textContent == 0) {
-        alert("Вы победили в конкурсе!");
-        timerValueHour.textContent = timerValueHourStart;
-        timerValueMinute.textContent = timerValueMinuteStart;
-        timerValueSecond.textContent = timerValueSecondStart;
-        window.location.href = 'https://netology.ru'
-    } else if (timerValueSecond.textContent <= 0) {
-        timerValueMinute.textContent--;
-        timerValueSecond.textContent = 59;
-    } else if (timerValueMinute.textContent < 0) {
-        timerValueHour.textContent--;
-        timerValueMinute.textContent = 59;
+  if (timerValueHour.textContent == 0 && timerValueMinute.textContent == 0 && timerValueSecond.textContent == 0) {
+    alert("Вы победили в конкурсе!");
+      timerValueHour.textContent = timerValueHourStart;
+      timerValueMinute.textContent = timerValueMinuteStart;
+      timerValueSecond.textContent = timerValueSecondStart;
+      window.location.href = 'https://netology.ru'
+  } else if (timerValueSecond.textContent <= 0) {    
+      timerValueMinute.textContent--;
+      timerValueSecond.textContent = 59;
+  } else if (timerValueMinute.textContent < 0) {
+      timerValueHour.textContent--;
+      timerValueMinute.textContent = 59;
     } else {
-        timerValueSecond.textContent--;
+      timerValueSecond.textContent--;
     }
 }, 100)
-
-
-
-
-
-
-
-
-
-
-
 
 // // ---------------Первое задание 
 
