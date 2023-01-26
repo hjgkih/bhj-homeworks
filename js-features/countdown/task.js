@@ -1,6 +1,6 @@
-const timerValueHour = document.getElementById("timer__hour");   // 0
-const timerValueMinute = document.getElementById("timer__minute"); // 0
-const timerValueSecond = document.getElementById("timer__second"); // 5
+const timerValueHour = document.getElementById("timer__hour");    
+const timerValueMinute = document.getElementById("timer__minute"); 
+const timerValueSecond = document.getElementById("timer__second"); 
 const timerValueHourStart = (Number(timerValueHour.textContent));
 const timerValueMinuteStart = (Number(timerValueMinute.textContent));
 const timerValueSecondStart = (Number(timerValueSecond.textContent));
