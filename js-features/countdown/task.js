@@ -43,17 +43,18 @@ setInterval(() => {
 //   let minutes = Math.floor( (t/1000/60) % 60 );  
 //   let hours = Math.floor( (t/(1000*60*60)) % 24 );  
 //   return {
+//      'total': t,
 //      'hours': hours,  
 //      'minutes': minutes,  
 //      'seconds': seconds  
 //   }
 // } 
-
-// setInterval (() => {
-//   if ( (timerValueSecond.textContent == '00' && timerValueMinute.textContent == '00' && timerValueHour.textContent == '00')) {
+//  const intervalId = setInterval (() => {
+//   if (getTime(startTime).total <= 0) {
 //     alert("Вы победили в конкурсе!");
 //     window.location.href = 'https://netology.ru'
 //     clearInterval(intervalId);
+//     return;
 //   }
 //   timerValueSecond.textContent = ('0' + getTime(startTime).seconds).slice(-2);
 //   timerValueMinute.textContent = ('0' + getTime(startTime).minutes).slice(-2);
