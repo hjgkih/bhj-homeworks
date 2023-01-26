@@ -5,7 +5,7 @@ const timerValueHourStart = (Number(timerValueHour.textContent));
 const timerValueMinuteStart = (Number(timerValueMinute.textContent));
 const timerValueSecondStart = (Number(timerValueSecond.textContent));
 
-setInterval(() => {
+setInterval(() => {  
   if (timerValueHour.textContent == 0 && timerValueMinute.textContent == 0 && timerValueSecond.textContent == 0) {
     alert("Вы победили в конкурсе!");
       timerValueHour.textContent = timerValueHourStart;
@@ -21,7 +21,16 @@ setInterval(() => {
     } else {
       timerValueSecond.textContent--;
     }
-}, 100)
+  
+  if (timerValueMinute.textContent.length < 2) {
+    timerValueMinute.textContent = ('0' +  timerValueMinute.textContent).slice(-2);
+  } else if (timerValueHour.textContent.length < 2) {
+      timerValueHour.textContent = ('0' +  timerValueHour.textContent).slice(-2);
+    } else if (timerValueSecond.textContent.length < 2) {
+        timerValueSecond.textContent = ('0' +  timerValueSecond.textContent).slice(-2);
+      }   
+}, 1000)
+
 
 // // ---------------Первое задание 
 
