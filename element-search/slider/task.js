@@ -2,8 +2,6 @@ const sliderLeft = document.querySelector(".slider__arrow_prev");
 const sliderRight = document.querySelector(".slider__arrow_next");
 const sliderItem = Array.from(document.querySelectorAll('.slider__item'));
 
-let sliderNumber = 0;
-
 sliderRight.onclick = () => {
   sliderPlayerRight();
 }
@@ -13,6 +11,7 @@ sliderLeft.onclick = () => {
 }
 
 let sliderPlayerRight = () => {
+  let sliderNumber = sliderItem.findIndex(i => i.className.includes('slider__item_active'));
   if(sliderItem.length - 1 == sliderNumber) {
     sliderNumber = 0
     sliderItem[sliderNumber].className += ' slider__item_active';
@@ -25,6 +24,7 @@ let sliderPlayerRight = () => {
 }
 
 let sliderPlayerLeft = () => {
+  let sliderNumber = sliderItem.findIndex(i => i.className.includes('slider__item_active'));
   if(sliderNumber == 0) {
     sliderNumber = sliderItem.length - 1;
     sliderItem[sliderNumber].className += ' slider__item_active';
@@ -35,6 +35,3 @@ let sliderPlayerLeft = () => {
   sliderItem[sliderNumber].className += ' slider__item_active';
   sliderItem[sliderNumber + 1].className = 'slider__item'; 
 }
-   
-
-
