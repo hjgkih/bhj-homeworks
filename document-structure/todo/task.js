@@ -1,4 +1,3 @@
-// const taskField = document.getElementById('tasks__form');
 const taskAddBtn = document.getElementById('tasks__add');
 const taskFieldText = document.getElementById('task__input');
 const tasksList = document.getElementById('tasks');
