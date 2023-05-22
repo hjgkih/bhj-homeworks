@@ -5,7 +5,7 @@ const cart = document.querySelector('.cart__products');
 plusMinusItem.forEach((i) => {
   i.onclick = () => {
     if(i.classList.contains('product__quantity-control_dec')) {
-      if(i.nextElementSibling.innerText == '0') {
+      if(parseInt(i.nextElementSibling.innerText) == 1) {
         return;
       }
 
@@ -21,20 +21,14 @@ addItemToCart.forEach((i) => {
     let productPicture = i.closest('.product').querySelector('.product__image').getAttribute('src');
     let productId = i.closest('.product').getAttribute('data-id');
     let productQuantity = i.closest('.product__quantity').querySelector('.product__quantity-value').innerText;
-    let arr = [];
+  
+    if(Array.from(cart.querySelectorAll('.cart__product')).includes(cart.querySelector(`[data-id="${productId}"]`))) {
+      cart.querySelector(`[data-id="${productId}"]`).querySelector('.cart__product-count').textContent = 
+      parseInt(cart.querySelector(`[data-id="${productId}"]`).querySelector('.cart__product-count').textContent) + 
+      parseInt(document.querySelector('.products').querySelector(`[data-id="${productId}"]`).querySelector('.product__quantity-value').textContent);
 
-  Array.from(document.querySelectorAll('.cart__product')).forEach((j) => {
-    arr.push(j.getAttribute('data-id'));
-  })
-
-  if(arr.includes(productId)) {
-    cart.querySelector(`div[data-id="${productId}"]`).querySelector('.cart__product-count').innerText = parseInt(cart.querySelector(`div[data-id="${productId}"]`).querySelector('.cart__product-count').innerText) + parseInt(productQuantity);
-    return;
-  }
-
-  if(productQuantity == '0') {
-    return;
-  }
+      return;
+    }
 
   cart.insertAdjacentHTML('beforeend', 
     `<div class="cart__product" data-id="${productId}">
@@ -42,4 +36,4 @@ addItemToCart.forEach((i) => {
       <div class="cart__product-count">${productQuantity}</div>
     </div>`);
   }
-})
+});
