@@ -1,10 +1,10 @@
 const taskAddBtn = document.getElementById('tasks__add');
 const taskFieldText = document.getElementById('task__input');
-const tasksList = document.getElementById('tasks');
+const tasksList = document.getElementById('tasks__list');
 
 taskAddBtn.onclick = () => {
   if(taskFieldText.value.trim() == '') {
-    return;
+    return false;
   }
 
   tasksList.insertAdjacentHTML('beforeend', 
@@ -12,17 +12,15 @@ taskAddBtn.onclick = () => {
       <div class="task__title">${taskFieldText.value}</div>
       <a href="#" class="task__remove">&times;</a>
     </div>`);
-
-  let taskRemove = Array.from(document.querySelectorAll('.task__remove'));
-  
-  taskRemove.forEach((i) => {
-    i.onclick = () => {
-      i.closest('.task').remove();        
-    }
-  });
   
   taskFieldText.value = ''; 
+
   return false; 
 }
 
 
+tasksList.addEventListener('click', (i) => {
+  if(i.target.classList.contains('task__remove')){
+    i.target.closest('.task').remove()
+  }
+})
