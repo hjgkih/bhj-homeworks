@@ -1,8 +1,8 @@
-let xhr = new XMLHttpRequest();
+const xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://students.netoservices.ru/nestjs-backend/slow-get-courses');
 xhr.send();
 
-xhr.onreadystatechange = function() {
+xhr.onload = function() {
   if(xhr.readyState === 4) {
     document.querySelector('.loader_active').className = 'loader';
     
